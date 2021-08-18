@@ -1,9 +1,20 @@
 import "./style.min.css";
 
+import Navbar from "./components/layout/Navbar";
+
+import Landing from "./components/routes/public/Landing";
+
+import SignIn from "./components/routes/auth/SignIn";
+
+import Dashboard from "./components/routes/private/Dashboard";
+
 const App = () => {
   return (
     <div className="app">
-      <h1>PersonalMERN#1</h1>
+      <Navbar />
+      <Landing />
+      <SignIn />
+      <Dashboard />
     </div>
   );
 };
