@@ -1,0 +1,26 @@
+@import "../../variables.scss";
+
+.header {
+  padding: $padding1;
+}
+
+.navbar {
+  position: absolute;
+  right: 6%;
+  top: 6px;
+  .navbar-links {
+    display: flex;
+    .navbar-link {
+      margin: 0 3px;
+      .navlink {
+        border-bottom: 2px solid;
+        border-color: rgba($color: $colour1, $alpha: 0);
+
+        transition: border-color 3s;
+      }
+      .navlink-active {
+        border-color: rgba($color: $colour1, $alpha: 1);
+      }
+    }
+  }
+}

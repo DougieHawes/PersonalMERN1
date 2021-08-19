@@ -5,6 +5,8 @@ import PublicRoute from "../../utils/routes/PublicRoute";
 import { Input1 } from "../../utils/inputs";
 import { Button1 } from "../../utils/buttons";
 
+import "./style.min.css";
+
 const SignIn = () => {
   const [state, setState] = useState({
     btnText: "submit",

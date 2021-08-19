@@ -1,5 +1,7 @@
 import PublicRoute from "../../utils/routes/PublicRoute";
 
+import "./style.min.css";
+
 const Landing = () => {
   const content = (
     <>

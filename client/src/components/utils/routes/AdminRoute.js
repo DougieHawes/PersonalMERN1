@@ -1,5 +1,7 @@
 import { Route } from "react-router-dom";
 
+import "./style.min.css";
+
 const AdminRoute = ({ path, title, content }) => {
   return (
     <Route exact path={path}>

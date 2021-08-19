@@ -2,35 +2,35 @@ import { NavLink } from "react-router-dom";
 
 import "./style.min.css";
 
-const Navbar = () => {
+const DashboardNav = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-links">
         <li className="navbar-link">
           <NavLink
-            to="/work"
+            to="/new-work"
             className="navlink"
             activeClassName="navlink-active"
           >
-            WORK
+            NEW-WORK
           </NavLink>
         </li>
         <li className="navbar-link">
           <NavLink
-            to="/blog"
+            to="/new-blog"
             className="navlink"
             activeClassName="navlink-active"
           >
-            BLOG
+            NEW-BLOG
           </NavLink>
         </li>
         <li className="navbar-link">
           <NavLink
-            to="/bio"
+            to="/edit-bio"
             className="navlink"
             activeClassName="navlink-active"
           >
-            BIO
+            EDIT-BIO
           </NavLink>
         </li>
       </ul>
@@ -38,4 +38,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default DashboardNav;
