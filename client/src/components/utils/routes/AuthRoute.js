@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { Route, Link } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
@@ -7,7 +7,7 @@ import Navbar from "../../layout/Navbar";
 
 import "./style.min.css";
 
-const PublicRoute = ({ isAuthenticated, path, title, content }) => {
+const AuthRoute = ({ isAuthenticated, path, title, content }) => {
   return (
     <Route exact path={path}>
       <Navbar />
@@ -15,16 +15,12 @@ const PublicRoute = ({ isAuthenticated, path, title, content }) => {
         <h2 className="route-title">{title}</h2>
         <div className="route-content">{content}</div>
       </div>
-      {isAuthenticated && (
-        <div className="private-link">
-          <Link to="/dashboard">private view</Link>
-        </div>
-      )}
+      {isAuthenticated && <Redirect to="/dashboard" />}
     </Route>
   );
 };
 
-PublicRoute.propTypes = {
+AuthRoute.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
@@ -32,4 +28,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, {})(PublicRoute);
+export default connect(mapStateToProps, {})(AuthRoute);

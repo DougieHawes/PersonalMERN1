@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import DashboardNav from "../../layout/DashboardNav";
 
@@ -11,6 +11,9 @@ const PrivateRoute = ({ path, title, content }) => {
       <div className="route">
         <h2 className="route-title">{title}</h2>
         <div className="route-content">{content}</div>
+      </div>
+      <div className="private-link">
+        <Link to="/">public view</Link>
       </div>
     </Route>
   );

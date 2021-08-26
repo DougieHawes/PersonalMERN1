@@ -15,7 +15,6 @@ module.exports = (req, res, next) => {
         req.user = decoded.user;
         next();
       }
-      run;
     });
   } catch (err) {
     return res

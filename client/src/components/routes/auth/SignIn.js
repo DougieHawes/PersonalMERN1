@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
 import { setAlert } from "../../../redux/alert/alertActions";
+import { signIn } from "../../../redux/auth/authActions";
 
-import PublicRoute from "../../utils/routes/PublicRoute";
+import AuthRoute from "../../utils/routes/AuthRoute";
 
 import { Input1 } from "../../utils/inputs";
 import { Button1 } from "../../utils/buttons";
 
 import "./style.min.css";
 
-const SignIn = ({ setAlert }) => {
+const SignIn = ({ setAlert, signIn }) => {
   const [state, setState] = useState({
     btnText: "submit",
   });
@@ -20,7 +22,7 @@ const SignIn = ({ setAlert }) => {
 
   const [form, setForm] = useState({
     email: "elliotalderson@fsociety.net",
-    password: "",
+    password: "Qwerty42",
   });
   const { email, password } = form;
 
@@ -33,6 +35,8 @@ const SignIn = ({ setAlert }) => {
     if (!email || !password) {
       setAlert("please fill in both fields", "warning");
     }
+
+    signIn(email, password);
   };
 
   const content = (
@@ -47,11 +51,12 @@ const SignIn = ({ setAlert }) => {
     </form>
   );
 
-  return <PublicRoute path="/secret" title="sign-in" content={content} />;
+  return <AuthRoute path="/secret" title="sign-in" content={content} />;
 };
 
 SignIn.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  signIn: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(SignIn);
+export default connect(null, { setAlert, signIn })(SignIn);
