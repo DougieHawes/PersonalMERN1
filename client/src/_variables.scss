@@ -1,4 +1,5 @@
 $colour1: #000000;
 $colour2: #ffffff;
 
-$padding1: 6px 6%;
+$horizontalPadding: 6%;
+$padding1: 6px $horizontalPadding;

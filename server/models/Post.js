@@ -2,9 +2,10 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
+    postedby: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
     image: {
-      type: String,
-      required: true,
+      data: Buffer,
+      contentType: String,
     },
     title: {
       type: String,
@@ -21,4 +22,4 @@ const PostSchema = new mongoose.Schema(
   { timeStamps: true }
 );
 
-module.exports = new mongoose.model("Post", PostSchema);
+module.exports = Post = mongoose.model("Post", PostSchema);

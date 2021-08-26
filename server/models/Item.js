@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const ItemSchema = new mongoose.Schema(
   {
+    submittedby: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
     image: {
       type: String,
       required: true,
@@ -21,4 +22,4 @@ const ItemSchema = new mongoose.Schema(
   { timeStamps: true }
 );
 
-module.exports = new mongoose.model("Item", ItemSchema);
+module.exports = Item = mongoose.model("Item", ItemSchema);

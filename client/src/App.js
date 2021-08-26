@@ -14,6 +14,8 @@ import EditBio from "./components/routes/private/EditBio";
 import NewBlog from "./components/routes/private/NewBlog";
 import NewWork from "./components/routes/private/NewWork";
 
+import Alert from "./components/utils/alerts/Alert1";
+
 const App = () => {
   return (
     <div className="app">
@@ -30,6 +32,8 @@ const App = () => {
       <EditBio />
       <NewBlog />
       <NewWork />
+      {/* alert component */}
+      <Alert />
     </div>
   );
 };

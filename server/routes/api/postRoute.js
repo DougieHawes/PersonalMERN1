@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+const isAuth = require("../../middleware/isAuth");
+
 const {
   newPost,
   getPost,
@@ -8,7 +10,7 @@ const {
   deletePost,
 } = require("../../controllers/post");
 
-router.post("/new", newPost);
+router.post("/new", isAuth, newPost);
 router.get("/get/:id", getPost);
 router.get("/all", getPosts);
 router.put("/edit/:id", editPost);
