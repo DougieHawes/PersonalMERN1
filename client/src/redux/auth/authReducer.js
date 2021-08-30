@@ -3,6 +3,7 @@ import {
   AUTH_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
+  LOGOUT,
 } from "./authTypes";
 
 const initialState = {
@@ -18,6 +19,7 @@ export default (state = initialState, action) => {
   switch (type) {
     case AUTH_FAILURE:
     case LOGIN_FAILURE:
+    case LOGOUT:
       localStorage.removeItem("token");
       return {
         ...state,

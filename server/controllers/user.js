@@ -81,16 +81,6 @@ exports.userSignin = async (req, res) => {
   }
 };
 
-exports.getUsers = async (req, res) => {
-  try {
-    const users = await User.find();
-
-    return res.json(users);
-  } catch (err) {
-    res.status(500).json({ msg: err.message });
-  }
-};
-
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import "./style.min.css";
 
-const Navbar = () => {
+const PublicNav = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-links">
@@ -38,4 +38,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default PublicNav;

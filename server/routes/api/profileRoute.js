@@ -5,9 +5,10 @@ const {
   getProfile,
   updateProfile,
 } = require("../../controllers/profile");
+const isAuth = require("../../middleware/isAuth");
 
-router.post("/create", createProfile);
-router.get("/get/:id", getProfile);
-router.put("/update", updateProfile);
+router.post("/create", isAuth, createProfile);
+router.post("/create", isAuth, updateProfile);
+router.get("/", getProfile);
 
 module.exports = router;

@@ -1,8 +1,13 @@
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+
+import PropTypes from "prop-types";
+
+import { signOut } from "../../redux/auth/authActions";
 
 import "./style.min.css";
 
-const DashboardNav = () => {
+const PrivateNav = ({ isAuthenticated, signOut }) => {
   return (
     <nav className="navbar">
       <ul className="navbar-links">
@@ -33,9 +38,21 @@ const DashboardNav = () => {
             EDIT-BIO
           </NavLink>
         </li>
+        <li className="navbar-link">
+          <i className="fas fa-sign-out-alt" onClick={signOut}></i>
+        </li>
       </ul>
     </nav>
   );
 };
 
-export default DashboardNav;
+PrivateNav.propTypes = {
+  signOut: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { signOut })(PrivateNav);

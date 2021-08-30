@@ -6,6 +6,7 @@ const ProfileSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
     },
+    avatar: { data: Buffer, contentType: String },
     quote: {
       type: String,
       required: true,

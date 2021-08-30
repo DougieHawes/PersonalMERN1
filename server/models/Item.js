@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const ItemSchema = new mongoose.Schema(
   {
-    submittedby: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+    postedby: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
     image: {
-      type: String,
-      required: true,
+      data: Buffer,
+      contentType: String,
     },
     itemname: {
       type: String,

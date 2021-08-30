@@ -11,9 +11,9 @@ const {
 } = require("../../controllers/item");
 
 router.post("/new", isAuth, newItem);
-router.get("/get/:id", getItem);
-router.get("/all", getItems);
-router.put("/edit/:id", editItem);
-router.delete("/delete/:id", deleteItem);
+router.get("/:id", getItem);
+router.get("/", getItems);
+router.put("/edit/:id", isAuth, editItem);
+router.delete("/delete/:id", isAuth, deleteItem);
 
 module.exports = router;

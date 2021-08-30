@@ -31,24 +31,32 @@ exports.newPost = async (req, res) => {
 
     newPost.save((err, result) => {
       if (err) {
-        return res.status(400).json({
-          error: errorHandler(err),
-        });
+        return res.status(400).json({ msg: err.message });
       }
       res.json(result);
     });
   });
 };
 
-exports.getPost = (req, res) => {
+exports.getPost = async (req, res) => {
   try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({ msg: "Post not found" });
+    }
+
+    res.json(post);
   } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
 };
 
-exports.getPosts = (req, res) => {
+exports.getPosts = async (req, res) => {
   try {
+    const allPosts = await Post.find().sort({ date: -1 });
+
+    res.json(allPosts);
   } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
@@ -58,6 +66,24 @@ exports.editPost = (req, res) => {
   res.json({ msg: "edit-post" });
 };
 
-exports.deletePost = (req, res) => {
-  res.json({ msg: "delete-post" });
+exports.deletePost = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    console.log(post);
+
+    if (!post) {
+      return res.status(404).json({ msg: "Post not found" });
+    }
+
+    if (post.postedby.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "User not authorized" });
+    }
+
+    await post.remove();
+
+    res.json({ msg: "Post removed" });
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
+  }
 };

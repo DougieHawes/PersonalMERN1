@@ -3,14 +3,14 @@ import { Route, Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
-import Navbar from "../../layout/Navbar";
+import PublicNav from "../../layout/PublicNav";
 
 import "./style.min.css";
 
 const PublicRoute = ({ isAuthenticated, path, title, content }) => {
   return (
     <Route exact path={path}>
-      <Navbar />
+      <PublicNav />
       <div className="route">
         <h2 className="route-title">{title}</h2>
         <div className="route-content">{content}</div>
