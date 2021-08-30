@@ -8,7 +8,7 @@ const {
 const isAuth = require("../../middleware/isAuth");
 
 router.post("/create", isAuth, createProfile);
-router.post("/create", isAuth, updateProfile);
+router.put("/update", isAuth, updateProfile);
 router.get("/", getProfile);
 
 module.exports = router;

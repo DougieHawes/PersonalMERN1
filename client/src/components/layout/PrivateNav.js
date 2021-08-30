@@ -48,7 +48,7 @@ const PrivateNav = ({ isAuthenticated, signOut }) => {
 
 PrivateNav.propTypes = {
   signOut: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

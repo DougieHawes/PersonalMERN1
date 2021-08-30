@@ -2,18 +2,18 @@
 .input {
   margin: 2px 0;
   width: 100%;
+  input {
+    width: 100%;
+  }
 }
 
 .button {
   cursor: pointer;
 }
 
-.input1 {
+.input2 {
   display: grid;
-  grid-template-columns: 90px auto;
-  .input-label::after {
-    content: ": ";
-  }
+  grid-template-columns: 1fr;
   .text-area {
     height: 120px;
   }

@@ -1,1 +1,1 @@
-.button,.input{margin:2px 0;width:100%}.button{cursor:pointer}.input1{display:grid;grid-template-columns:90px auto}.input1 .input-label::after{content:": "}.input1 .text-area{height:120px}
+.button,.input{margin:2px 0;width:100%}.button input,.input input{width:100%}.button{cursor:pointer}.input2{display:grid;grid-template-columns:1fr}.input2 .text-area{height:120px}

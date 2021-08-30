@@ -1,0 +1,2 @@
+export const POSTS_FAILURE = "POSTS_FAILURE";
+export const POSTS_SUCCESS = "POSTS_SUCCESS";

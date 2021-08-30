@@ -25,7 +25,7 @@ export const Input2 = ({
   placeholder,
   onChange,
 }) => (
-  <div className="input input1">
+  <div className="input input2">
     <label className="input-label">{label}</label>
     <textarea
       className="text-area"
