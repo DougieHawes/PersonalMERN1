@@ -1,10 +1,13 @@
 @import "../../variables.scss";
 
 .header {
+  height: $header-height;
+  overflow-y: hidden;
   padding: $padding1;
 }
 
 .navbar {
+  height: $header-height;
   position: absolute;
   right: 6%;
   top: 6px;

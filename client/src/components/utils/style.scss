@@ -9,5 +9,12 @@
 }
 
 .input1 {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 90px auto;
+  .input-label::after {
+    content: ": ";
+  }
+  .text-area {
+    height: 120px;
+  }
 }

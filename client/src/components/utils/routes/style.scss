@@ -1,7 +1,17 @@
 @import "../../../variables.scss";
 
 .route {
+  max-height: 100vh - $header-height;
+  overflow-y: scroll;
   padding: 6px 6%;
+  .route-title {
+    height: $route-title-height;
+    position: fixed;
+  }
+  .route-content {
+    min-height: 100vh - $header-height;
+    padding-top: $route-title-height;
+  }
 }
 
 .private-link {
