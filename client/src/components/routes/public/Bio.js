@@ -17,10 +17,17 @@ const Bio = ({ getBio, bio: { bio } }) => {
   const content = (
     <div className="bio">
       <p>About me</p>
-      <div className="bio-item">
-        <p className="bio-item-key">quote</p>
-        <p className="bio-item-value">{bio ? bio.quote : ""}</p>
-      </div>
+      {bio &&
+        bio.map((i) => (
+          <div key={i._id}>
+            {i.quote && (
+              <div className="bio-item">
+                <p className="bio-item-key">quote</p>
+                <p className="bio-item-value">{i.quote}</p>
+              </div>
+            )}
+          </div>
+        ))}
     </div>
   );
 

@@ -11,7 +11,7 @@ exports.createProfile = async (req, res) => {
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;
 
-    form.parse(req, (err, fields, files) => {
+    form.parse(req, async (err, fields, files) => {
       if (err) {
         return res.status(400).json({
           error: "image upload failed",
@@ -19,7 +19,10 @@ exports.createProfile = async (req, res) => {
       }
       const { avatar, quote } = fields;
 
-      const newProfile = new Profile({ postedby, ...fields });
+      const newProfile = await Profile.findOneAndUpdate({
+        postedby,
+        ...fields,
+      });
 
       if (files.avatar) {
         if (files.avatar.size > 1000000) {
@@ -45,9 +48,9 @@ exports.createProfile = async (req, res) => {
 
 exports.getProfile = async (req, res) => {
   try {
-    const profile = await Profile.find().sort({ date: -1 });
+    const profiles = await Profile.find();
 
-    res.json(profile[0]);
+    res.json(profiles);
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
