@@ -52,6 +52,19 @@ exports.getItem = async (req, res) => {
   }
 };
 
+exports.getItemImage = async (req, res, next) => {
+  try {
+    const item = await Item.findById(req.params.id);
+
+    if (item.image.data) {
+      res.set("Content-Type", item.image.contentType);
+      return res.send(item.image.data);
+    }
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
+  }
+};
+
 exports.getItems = async (req, res) => {
   try {
     const allItems = await Item.find().sort({ date: -1 });

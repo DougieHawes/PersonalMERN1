@@ -21,10 +21,16 @@ const Bio = ({ getBio, bio: { bio } }) => {
         bio.map((i) => (
           <div key={i._id}>
             {i.quote && (
-              <div className="bio-item">
-                <p className="bio-item-key">quote</p>
-                <p className="bio-item-value">{i.quote}</p>
-              </div>
+              <>
+                <img
+                  src={`${process.env.REACT_APP_API_URL}/bio/image/${i._id}`}
+                  alt={i.itemname}
+                />
+                <div className="bio-item">
+                  <p className="bio-item-key">quote</p>
+                  <p className="bio-item-value">{i.quote}</p>
+                </div>
+              </>
             )}
           </div>
         ))}

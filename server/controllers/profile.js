@@ -62,3 +62,16 @@ exports.updateProfile = async (req, res) => {
     res.status(500).json({ msg: err.message });
   }
 };
+
+exports.getProfileImage = async (req, res) => {
+  try {
+    const profile = await Profile.findById(req.params.id);
+
+    if (profile.avatar.data) {
+      res.set("Content-Type", profile.avatar.contentType);
+      return res.send(profile.avatar.data);
+    }
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
+  }
+};

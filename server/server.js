@@ -12,10 +12,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/user", require("./routes/api/userRoute"));
 app.use("/api/bio", require("./routes/api/profileRoute"));
-app.use("/api/work", require("./routes/api/itemRoute"));
 app.use("/api/blog", require("./routes/api/postRoute"));
+app.use("/api/user", require("./routes/api/userRoute"));
+app.use("/api/work", require("./routes/api/itemRoute"));
 
 app.listen(port, console.log(`express app running on port:${port}`));
 

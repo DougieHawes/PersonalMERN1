@@ -20,6 +20,10 @@ const Blog = ({ getPosts, blog: { posts } }) => {
       {posts &&
         posts.map((i) => (
           <div key={i._id}>
+            <img
+              src={`${process.env.REACT_APP_API_URL}/blog/image/${i._id}`}
+              alt={i.itemname}
+            />
             <div>{i.title}</div>
             <div>{i.subtitle}</div>
             <div>{i.text}</div>

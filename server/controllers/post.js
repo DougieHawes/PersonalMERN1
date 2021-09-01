@@ -52,6 +52,21 @@ exports.getPost = async (req, res) => {
   }
 };
 
+exports.getPostImage = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    console.log(post.image);
+
+    if (post.image.data) {
+      res.set("Content-Type", post.image.contentType);
+      return res.send(post.image.data);
+    }
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
+  }
+};
+
 exports.getPosts = async (req, res) => {
   try {
     const allPosts = await Post.find().sort({ date: -1 });
