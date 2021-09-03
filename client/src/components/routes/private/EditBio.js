@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import PrivateRoute from "../../utils/routes/PrivateRoute";
 
@@ -11,8 +11,9 @@ import "./style.min.css";
 const EditBio = () => {
   const [state, setState] = useState({
     btnText: "submit",
+    redirect: false,
   });
-  const { btnText } = state;
+  const { btnText, redirect } = state;
 
   const [data, setData] = useState({
     avatar: "",
@@ -46,9 +47,9 @@ const EditBio = () => {
           placeholder="enter quote"
           onChange={handleChange("quote")}
         />
-
         <Button1 text={btnText} />
       </form>
+      {redirect && <Redirect to="/bio" />}
     </div>
   );
 

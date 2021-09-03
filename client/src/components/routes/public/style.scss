@@ -1,1 +1,28 @@
 @import "../../../variables.scss";
+
+.work-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bio-header {
+  display: grid;
+  grid-template-columns: auto $bio-image-width;
+  .bio-header-text {
+    padding: 6px 6%;
+  }
+  .bio-header-image {
+    width: $bio-image-width;
+  }
+}
+.bio-body {
+  padding: 6px 6%;
+  text-align: center;
+  .bio-body-title {
+    font-size: 21px;
+    padding-bottom: 14px;
+  }
+  .bio-body-text {
+    font-size: 12px;
+  }
+}

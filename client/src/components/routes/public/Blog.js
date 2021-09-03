@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 
 import { getPosts } from "../../../redux/blog/blogActions";
 
+import { Card2 } from "../../utils/cards";
+
 import PublicRoute from "../../utils/routes/PublicRoute";
 
 import "./style.min.css";
@@ -15,21 +17,20 @@ const Blog = ({ getPosts, blog: { posts } }) => {
   }, []);
 
   const content = (
-    <>
-      <p>BLOG CONTENT</p>
+    <div className="work-grid">
       {posts &&
         posts.map((i) => (
-          <div key={i._id}>
-            <img
-              src={`${process.env.REACT_APP_API_URL}/blog/image/${i._id}`}
-              alt={i.itemname}
-            />
-            <div>{i.title}</div>
-            <div>{i.subtitle}</div>
-            <div>{i.text}</div>
-          </div>
+          <Card2
+            key={i._id}
+            id={i._id}
+            date={i.date}
+            img={`${process.env.REACT_APP_API_URL}/blog/image/${i._id}`}
+            title={i.title}
+            subtitle={i.subtitle}
+            text={i.text}
+          />
         ))}
-    </>
+    </div>
   );
 
   return <PublicRoute path="/blog" title="blog" content={content} />;

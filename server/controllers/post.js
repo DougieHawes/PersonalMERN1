@@ -56,8 +56,6 @@ exports.getPostImage = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
-    console.log(post.image);
-
     if (post.image.data) {
       res.set("Content-Type", post.image.contentType);
       return res.send(post.image.data);

@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .button,
 .input {
   margin: 2px 0;
@@ -9,6 +11,81 @@
 
 .button {
   cursor: pointer;
+}
+
+.card {
+  border: 1px solid $colour1;
+}
+.blog-card {
+  margin-bottom: 6px;
+  max-height: 180px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  .blog-card-image-container {
+    border-bottom: 1px solid $colour1;
+    height: 70px;
+    overflow: hidden;
+    .blog-card-image {
+      border-bottom: 1px solid $colour1;
+      width: 100%;
+    }
+  }
+  .blog-body {
+    padding: 21px 2% 6px;
+    .blog-card-title {
+      background-color: $colour2;
+      left: 50%;
+      padding: 2px 6px;
+      position: absolute;
+      top: 55px;
+      transform: translateX(-50%);
+    }
+    .blog-card-subtitle {
+      left: 50%;
+      position: absolute;
+      font-size: 12px;
+      font-style: italic;
+      top: 75px;
+      transform: translateX(-50%);
+    }
+    .blog-card-text {
+      font-size: 10px;
+      padding: 6px 2%;
+      text-align: justify;
+    }
+  }
+}
+.work-card {
+  margin: 0 auto 6px;
+  max-height: 210px;
+  overflow: hidden;
+  width: 140px;
+  .work-card-image-container {
+    border-bottom: 1px solid $colour1;
+    max-height: 100px;
+    min-height: 100px;
+    overflow: hidden;
+    width: 140px;
+    .work-card-image {
+      width: 100%;
+    }
+  }
+  .work-body {
+    padding: 0 2%;
+    .work-card-title {
+      font-size: 14px;
+    }
+    .work-card-subtitle {
+      font-size: 10px;
+      font-style: italic;
+    }
+    .work-card-text {
+      font-size: 10px;
+      padding: 6px 2%;
+      text-align: justify;
+    }
+  }
 }
 
 .input2 {

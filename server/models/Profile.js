@@ -9,7 +9,15 @@ const ProfileSchema = new mongoose.Schema(
     avatar: { data: Buffer, contentType: String },
     quote: {
       type: String,
-      required: true,
+    },
+    location: {
+      type: String,
+    },
+    age: {
+      type: String,
+    },
+    about: {
+      type: String,
     },
   },
   { timeStamps: true }

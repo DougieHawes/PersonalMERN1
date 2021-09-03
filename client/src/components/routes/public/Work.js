@@ -7,6 +7,8 @@ import { getWorks } from "../../../redux/work/workActions";
 
 import PublicRoute from "../../utils/routes/PublicRoute";
 
+import { Card1 } from "../../utils/cards";
+
 import "./style.min.css";
 
 const Work = ({ getWorks, work: { works } }) => {
@@ -15,21 +17,19 @@ const Work = ({ getWorks, work: { works } }) => {
   }, []);
 
   const content = (
-    <>
-      <p>WORK CONTENT</p>
+    <div className="work-grid">
       {works &&
         works.map((i) => (
-          <div key={i._id}>
-            <img
-              src={`${process.env.REACT_APP_API_URL}/work/image/${i._id}`}
-              alt={i.itemname}
-            />
-            <div>{i.title}</div>
-            <div>{i.subtitle}</div>
-            <div>{i.text}</div>
-          </div>
+          <Card1
+            key={i._id}
+            id={i._id}
+            img={`${process.env.REACT_APP_API_URL}/work/image/${i._id}`}
+            title={i.itemname}
+            subtitle={i.subtitle}
+            text={i.text}
+          />
         ))}
-    </>
+    </div>
   );
 
   return <PublicRoute path="/work" title="work" content={content} />;

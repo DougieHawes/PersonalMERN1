@@ -1,0 +1,1 @@
+.work-grid{display:flex;flex-wrap:wrap}.bio-header{display:grid;grid-template-columns:auto 280px}.bio-header .bio-header-text{padding:6px 6%}.bio-header .bio-header-image{width:280px}.bio-body{padding:6px 6%;text-align:center}.bio-body .bio-body-title{font-size:21px;padding-bottom:14px}.bio-body .bio-body-text{font-size:12px}

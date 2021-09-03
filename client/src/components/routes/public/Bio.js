@@ -7,6 +7,8 @@ import { getBio } from "../../../redux/bio/bioActions";
 
 import PublicRoute from "../../utils/routes/PublicRoute";
 
+import { Item1 } from "../../utils/items";
+
 import "./style.min.css";
 
 const Bio = ({ getBio, bio: { bio } }) => {
@@ -16,19 +18,26 @@ const Bio = ({ getBio, bio: { bio } }) => {
 
   const content = (
     <div className="bio">
-      <p>About me</p>
       {bio &&
         bio.map((i) => (
           <div key={i._id}>
             {i.quote && (
               <>
-                <img
-                  src={`${process.env.REACT_APP_API_URL}/bio/image/${i._id}`}
-                  alt={i.itemname}
-                />
-                <div className="bio-item">
-                  <p className="bio-item-key">quote</p>
-                  <p className="bio-item-value">{i.quote}</p>
+                <div className="bio-header">
+                  <div className="bio-header-text">
+                    <Item1 label="age" value={i.age} />
+                    <Item1 label="location" value={i.location} />
+                    <Item1 label="quote" value={i.quote} />
+                  </div>
+                  <img
+                    className="bio-header-image"
+                    src={`${process.env.REACT_APP_API_URL}/bio/image/${i._id}`}
+                    alt={i.itemname}
+                  />
+                </div>
+                <div className="bio-body">
+                  <h4 className="bio-body-title">about me</h4>
+                  <p className="bio-body-text">{i.about}</p>
                 </div>
               </>
             )}
