@@ -7,7 +7,7 @@ import { getWorks } from "../../../redux/work/workActions";
 
 import PublicRoute from "../../utils/routes/PublicRoute";
 
-import { Card1 } from "../../utils/cards";
+import WorkCard from "../../utils/WorkCard";
 
 import "./style.min.css";
 
@@ -20,7 +20,7 @@ const Work = ({ getWorks, work: { works } }) => {
     <div className="work-grid">
       {works &&
         works.map((i) => (
-          <Card1
+          <WorkCard
             key={i._id}
             id={i._id}
             img={`${process.env.REACT_APP_API_URL}/work/image/${i._id}`}

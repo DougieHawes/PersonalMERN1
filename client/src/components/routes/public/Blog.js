@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 import { getPosts } from "../../../redux/blog/blogActions";
 
-import { Card2 } from "../../utils/cards";
+import BlogCard from "../../utils/BlogCard";
 
 import PublicRoute from "../../utils/routes/PublicRoute";
 
@@ -20,7 +20,7 @@ const Blog = ({ getPosts, blog: { posts } }) => {
     <div className="work-grid">
       {posts &&
         posts.map((i) => (
-          <Card2
+          <BlogCard
             key={i._id}
             id={i._id}
             date={i.date}
